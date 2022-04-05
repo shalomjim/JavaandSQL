@@ -1,0 +1,40 @@
+1) The total number of Users (i.e. count of all users) in the system.
+Select count(id) from Users;
+
+2) The total number of Users in the Accounting Department.
+Select count(id) from Users WHERE Department = ‘Accounting’;
+
+3) The total number of Users that have not activated their account.
+Select count(id) from User WHERE Status!= ‘Activated’;
+
+4) List the first 5 Users that registered for an account in the system.
+Select * from Users
+ order by Created_dt asc
+ limit 5;
+
+5) All Users whose age is greater than 18 but less than 26.
+Select * from users 
+WHERE Age > 18 AND Age < 26;
+
+6) All Users that registered for an account last week Thursday.
+Select * from users 
+WHERE Created_dt = ‘06-01-2022’;
+
+7) All Users that registered for an account between last week Saturday and this week Monday.
+Select * from users 
+WHERE Created_dt Between ‘08-01-2022’ AND ‘10-01-2022’;
+
+8) Query to Activate all pending Users in the system.
+UPDATE User
+SET status = ‘Activated’
+WHERE Status = ‘Pending’;
+
+9) Query to Update the User whose name is Tim to Timothy.
+UPDATE User
+SET Name = ‘Timothy’
+WHERE Name = ‘Tim;
+
+10) Total Number of Users in each Department.
+Select count(id), Department from Users
+Group by Department;
+
